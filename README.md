@@ -1,20 +1,6 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/6d94aad0-f048-48b3-947d-a5345a32eecb
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+A real-time, multi-platform alert notification system built for India, inspired by the mechanics of the US AMBER Alert system and designed to operate as a mandatory navigation and alert layer across all vehicles manufactured for the Indian subcontinent.
+SirenNet connects local authority control rooms (police, traffic, emergency services) to a distributed network of in-vehicle dashboards, mobile applications, public display screens, and desktop interfaces. Alerts broadcast in real time across all endpoints the moment they are issued, filtered by geo-fenced watch zones so recipients only see what is locally relevant.
+The system handles a broad spectrum of alert types including active suspects in the vicinity, traffic incidents, public safety announcements, and medical emergencies. A dedicated Medical Ambulatory Status flow allows a private vehicle transporting a critical patient to broadcast its route live, receive signal-break permissions, and have that status verified by a law enforcement auth token at the destination hospital to prevent abuse.
+The map interface runs on Leaflet and pulls road geometry from OpenStreetMap via the Overpass API. Dynamic routing for emergency vehicles is calculated through OSRM. A simulated live traffic layer visualises road congestion across three states (free flow, moderate, heavy) and updates every eight seconds. Users can define multiple custom watch zones by clicking on the map, and the system applies Haversine-formula intersection checks to ensure only relevant alerts surface.
+The authority-facing mission control dashboard follows a high-density dark-mode design and provides full alert lifecycle management: dispatch, track, and stand down. The public-facing receiver view is built for immediate legibility at a glance, suitable for car entertainment systems, highway billboard screens, and mobile lock screens alike.
+Stack: React · TypeScript · Leaflet · OSRM · Overpass API · Context API​​​​​​​​​​​​​​​​
