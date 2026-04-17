@@ -1,0 +1,175 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@layer base {
+  :root {
+    --bg: #0A0B0D;
+    --surface: #14161A;
+    --border: #2D3139;
+    --accent: #E11D48;
+    --warning: #F59E0B;
+    --info: #3B82F6;
+    --success: #10B981;
+    --text-main: #E2E8F0;
+    --text-dim: #94A3B8;
+    
+    --font-mono: 'Courier New', monospace;
+    --font-sans: 'Helvetica Neue', Arial, sans-serif;
+
+    /* Legacy vars remapped */
+    --bg-dash: var(--bg);
+    --ink-dash: var(--text-main);
+    --line-dash: var(--border);
+    --bg-display: var(--bg);
+    --accent-red: var(--accent);
+    --accent-yellow: var(--warning);
+    --accent-blue: var(--info);
+    --accent-orange: var(--warning);
+
+    --f-mono: var(--font-mono);
+    --f-sans: var(--font-sans);
+    --f-display: var(--font-sans);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg);
+    color: var(--text-main);
+    overflow: hidden;
+    @apply m-0 p-0;
+  }
+
+  /* High Density Theme Custom Classes */
+  .hd-header {
+    height: 60px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+
+  .hd-badge {
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .hd-panel {
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+  }
+
+  .hd-panel-header {
+    padding: 16px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Dashboard specific legacy overrides */
+  .dash-grid {
+    @apply bg-[var(--bg)] text-[var(--text-main)] min-h-screen font-sans;
+  }
+
+  .dash-card {
+    @apply bg-[var(--surface)] border border-[var(--border)] relative shadow-none rounded-none;
+  }
+
+  .data-row {
+    @apply grid border-b border-[var(--border)] transition-colors duration-200 cursor-pointer text-white;
+    grid-template-columns: auto 1fr 1fr 120px;
+  }
+
+  .data-row:hover {
+    @apply bg-[rgba(255,255,255,0.05)] text-white;
+  }
+
+  .col-header {
+    @apply font-sans text-xs font-semibold opacity-100 text-[var(--text-dim)] uppercase tracking-[1px] px-4 py-3 border-b border-[var(--border)] bg-[var(--surface)];
+  }
+
+  .data-value {
+    @apply font-mono tracking-tight px-4 py-3 flex items-center;
+  }
+
+  .alert-time {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .alert-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 4px 0;
+  }
+
+  .alert-meta {
+    font-size: 11px;
+    color: var(--text-dim);
+    display: flex;
+    gap: 8px;
+  }
+
+  /* Display/Hardware Specific */
+  .display-grid {
+    @apply bg-[var(--bg)] text-white h-screen flex flex-col font-sans overflow-hidden;
+  }
+
+  .hardware-widget {
+    @apply bg-[var(--surface)] shadow-none border border-[var(--border)] rounded-none relative p-6;
+  }
+
+  .marquee-track {
+    display: flex;
+    animation: marquee 20s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .glow-red {
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  /* Form components override for High Density */
+  input, select, textarea {
+    @apply bg-[var(--surface)] text-[var(--text-main)] border-[var(--border)] focus:border-[var(--accent)] focus:outline-none transition-colors;
+    background-color: var(--bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border) !important;
+  }
+  
+  .bg-white {
+    background-color: var(--surface) !important;
+  }
+  
+  .bg-gray-50, .bg-gray-100 {
+    background-color: var(--bg) !important;
+  }
+  .bg-gray-200 {
+    background-color: var(--border) !important;
+  }
+}
+

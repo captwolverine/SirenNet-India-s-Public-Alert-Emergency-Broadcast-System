@@ -1,0 +1,6 @@
+{
+  "name": "SirenNet - General Alert System",
+  "description": "An AMBER-style real-time public general alert notification and routing system for emergency medical vehicles, traffic hazards, and suspects in India.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
